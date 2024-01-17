@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <title>{{pet.name}}'s Info</title>
+</head>
+<body>
+    <h1>Information</h1>
+
+    <ul>
+        <li>{{pet.name}}</li>
+        <li>{{pet.species}}</li>
+        {% if pet.photo_url %}
+            <li>
+                <img src="{{pet.photo_url}}" alt="{{pet.name}}'s Image" style="max-width: 250px; max-height: 100px;">
+            </li>
+        {% endif %}
+        {% if pet.age %}
+            <li>
+                {{pet.age}}
+            </li>
+        {% endif %}
+    </ul>
+    <a href="/" class="btn btn-info">Go Back</a>
+    <a href="/{{pet.id}}/edit" class="btn btn-success">Edit Pet</a>
+    <form action="/{{pet.id}}/delete" method="post">
+        <button class="btn btn-danger">Delete</button>
+    </form>
+</body>
+</html>
